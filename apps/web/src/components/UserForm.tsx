@@ -17,7 +17,7 @@ export default function UserForm({ initialValues, onSubmit, isEdit = false }: Us
     setValue,
     control,
     reset,
-    formState: { errors },
+    formState: { errors, isSubmitting },
   } = useForm<UserFormData>({
     resolver: zodResolver(userSchema),
     defaultValues: initialValues || DEFAULT_VALUES,
@@ -161,9 +161,13 @@ export default function UserForm({ initialValues, onSubmit, isEdit = false }: Us
             </div>
               <button
                 type="submit"
+                disabled={isSubmitting}
                 className="w-full bg-primary text-white font-medium py-2 rounded-md transition cursor-pointer"
               >
-                {isEdit ? "Update Info" : "Submit Details"}
+                {isSubmitting
+                  ? (isEdit ? "Updating..." : "Submitting...")
+                  : (isEdit ? "Update Info" : "Submit Details")
+                }
               </button>
             </form>
           </div>
