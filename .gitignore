@@ -1,0 +1,22 @@
+# Dependency folders
+node_modules/
+dist/
+build/
+.pnpm-store/
+
+# Environment variables (CRITICAL)
+.env
+.env.local
+.env.development.local
+
+# TypeScript logs and cache
+*.tsbuildinfo
+.eslintcache
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# IDE specific folders
+.vscode/
+.idea/
